@@ -2,7 +2,7 @@
 
 command - cat data/server.log.txt
 
-output - 
+output -
 
 2026-10-30 09:01:12 INFO User login: ravi
 
@@ -76,7 +76,7 @@ command - head -n 3 data/server.log.txt
 
 
 
-output - 
+output -
 
 $ head -n 3 data/server.log.txt
 
@@ -96,7 +96,7 @@ $ tail -n 3 data/server.log.txt
 
 2026-10-30 10:13:40 INFO User login: arjun
 
-&#x20;     
+&#x20;
 
 
 
@@ -106,7 +106,7 @@ command - wc -l data/server.log.txt
 
 
 
-output - 
+output -
 
 &#x20;wc -l data/server.log.txt
 
@@ -122,7 +122,7 @@ command - grep ERROR data/server.log.txt
 
 
 
-output - 
+output -
 
 $ grep ERROR data/server.log.txt
 
@@ -151,7 +151,8 @@ $ grep -c ERROR data/server.log.txt
 command - grep ERROR data/server.log.txt > reports/errors.txt
 
 
-output - 
+
+output -
 
 2026-10-30 09:02:45 ERROR Database connection failed
 
@@ -173,7 +174,7 @@ command - grep "login" data/server.log.txt | awk '{print $NF}' | sort | uniq -c 
 
 
 
-output - 
+output -
 
 &#x20;grep "login" data/server.log.txt | awk '{print $NF}' | sort | uniq -c | sort -nr
 
@@ -192,4 +193,42 @@ output -
 7.Why are the logout lines not counted?:
 
 answer - Because the grep "login" command strictly filters for lines containing the word "login"excluding lines that say "logout".
+
+
+
+
+
+
+
+
+
+\# Log Detective
+
+\## Project Description
+This project automates the process of analyzing server logs. It uses a Bash script to extract useful metrics such as total line counts, error counts, warning counts, and user login frequencies from a server log file.
+
+
+\## How to Run the Script
+To run the script and see the report in your terminal, open Git Bash and run:
+
+./scripts/report.sh
+
+
+To run the script and save the output directly to the reports folder, run:
+
+./scripts/report.sh > reports/today.txt
+
+
+
+\## Sample Output
+===== Daily Log Report =====
+Total lines: 30
+Errors: 6
+Warnings: 6
+User logins:
+      4 ravi
+      3 priya
+      3 arjun
+      2 sneha
+      1 kiran
 
